@@ -7,6 +7,13 @@ import { Magnetic } from "../components/Magnetic";
 import { LuxuryCard } from "../components/LuxuryCard";
 import api from "../services/api";
 
+import fallbackHomeData from "../data/home.json";
+import fallbackServicesData from "../data/services.json";
+import fallbackCampaignsData from "../data/campaigns.json";
+import fallbackEventsData from "../data/events.json";
+import fallbackVideosData from "../data/videos.json";
+import fallbackTestimonialsData from "../data/testimonials.json";
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface HomeProps {
@@ -186,14 +193,27 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
           api.get('/testimonials').catch(() => ({ data: [] }))
         ]);
         
-        setHomeData(Array.isArray(homeRes.data) ? homeRes.data[0] : homeRes.data);
-        setServicesData(Array.isArray(servicesRes.data) ? servicesRes.data : []);
-        setCampaignsData(Array.isArray(campaignsRes.data) ? campaignsRes.data[0] : campaignsRes.data);
-        setEventsData(Array.isArray(eventsRes.data) ? eventsRes.data : []);
-        setVideosData(Array.isArray(videosRes.data) ? videosRes.data : []);
-        setTestimonialsData(Array.isArray(testimonialsRes.data) ? testimonialsRes.data : []);
+        const fetchedHome = Array.isArray(homeRes.data) ? homeRes.data[0] : homeRes.data;
+        const fetchedServices = Array.isArray(servicesRes.data) ? servicesRes.data : [];
+        const fetchedCampaigns = Array.isArray(campaignsRes.data) ? campaignsRes.data[0] : campaignsRes.data;
+        const fetchedEvents = Array.isArray(eventsRes.data) ? eventsRes.data : [];
+        const fetchedVideos = Array.isArray(videosRes.data) ? videosRes.data : [];
+        const fetchedTestimonials = Array.isArray(testimonialsRes.data) ? testimonialsRes.data : [];
+
+        setHomeData(fetchedHome && Object.keys(fetchedHome).length > 0 ? fetchedHome : fallbackHomeData);
+        setServicesData(fetchedServices.length > 0 ? fetchedServices : fallbackServicesData);
+        setCampaignsData(fetchedCampaigns && Object.keys(fetchedCampaigns).length > 0 ? fetchedCampaigns : fallbackCampaignsData);
+        setEventsData(fetchedEvents.length > 0 ? fetchedEvents : fallbackEventsData);
+        setVideosData(fetchedVideos.length > 0 ? fetchedVideos : fallbackVideosData);
+        setTestimonialsData(fetchedTestimonials.length > 0 ? fetchedTestimonials : fallbackTestimonialsData);
       } catch (error) {
         console.error('Error fetching home data:', error);
+        setHomeData(fallbackHomeData);
+        setServicesData(fallbackServicesData);
+        setCampaignsData(fallbackCampaignsData);
+        setEventsData(fallbackEventsData);
+        setVideosData(fallbackVideosData);
+        setTestimonialsData(fallbackTestimonialsData);
       }
     };
     fetchAllData();
