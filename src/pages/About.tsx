@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { Compass, Eye, ShieldCheck, Film, Target, Heart, Star, Sparkles } from "lucide-react";
 
 const getIconComponent = (iconName: string | undefined, fallbackIcon: React.ReactNode) => {
@@ -14,9 +14,30 @@ const getIconComponent = (iconName: string | undefined, fallbackIcon: React.Reac
   return fallbackIcon;
 };
 import { motion } from "framer-motion";
-import aboutData from "../data/about.json";
+
+import api from "../services/api";
 
 export const About: React.FC = () => {
+  const [aboutData, setAboutData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const response = await api.get('/about');
+        // Handle array response if the API returns an array, or single object
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setAboutData(data);
+      } catch (error) {
+        console.error('Error fetching about data:', error);
+      }
+    };
+    fetchAboutData();
+  }, []);
+
+  if (!aboutData) {
+    return <div className="min-h-screen pt-32 pb-24 px-6 flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">
       {/* Background Orbs */}

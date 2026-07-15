@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState,  useEffect } from "react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Users, ArrowUpRight, Award } from "lucide-react";
-import eventsData from "../data/events.json";
+
+import api from "../services/api";
 import eventsPageData from "../data/eventsPage.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 import gsap from "gsap";
@@ -10,6 +11,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Events: React.FC = () => {
+  const [eventsData, setEventsData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/events');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setEventsData(data);
+      } catch (error) {
+        console.error('Error fetching data for /events:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!eventsData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   useEffect(() => {
     // Reveal section
     gsap.fromTo(

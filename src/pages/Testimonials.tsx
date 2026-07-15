@@ -1,10 +1,30 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
-import testimonialsData from "../data/testimonials.json";
+
+import api from "../services/api";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Testimonials: React.FC = () => {
+  const [testimonialsData, setTestimonialsData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/testimonials');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setTestimonialsData(data);
+      } catch (error) {
+        console.error('Error fetching data for /testimonials:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!testimonialsData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">
       {/* Background radial glows */}

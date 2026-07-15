@@ -1,11 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import portfolioData from "../data/portfolio.json";
+
+import api from "../services/api";
 import portfolioSettings from "../data/portfolioSettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Portfolio: React.FC = () => {
+  const [portfolioData, setPortfolioData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/portfolio');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setPortfolioData(data);
+      } catch (error) {
+        console.error('Error fetching data for /portfolio:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!portfolioData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = [

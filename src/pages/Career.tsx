@@ -1,10 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { Briefcase, MapPin, DollarSign, Send } from "lucide-react";
 import { motion } from "framer-motion";
-import careerData from "../data/career.json";
+
+import api from "../services/api";
 import careerSettings from "../data/careerSettings.json";
 
 export const Career: React.FC = () => {
+  const [careerData, setCareerData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/career');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setCareerData(data);
+      } catch (error) {
+        console.error('Error fetching data for /career:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!careerData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,12 +49,13 @@ export const Career: React.FC = () => {
         data.append('resume', formData.resume);
       }
 
-      const response = await fetch('http://localhost:5000/api/resume/create', {
-        method: 'POST',
-        body: data,
+      const response = await api.post('/resume/create', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
-      if (response.ok) {
+      if (response.status === 200 || response.status === 201) {
         setSubmitted(true);
       } else {
         alert('Failed to submit application. Please try again later.');

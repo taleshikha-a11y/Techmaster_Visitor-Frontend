@@ -1,14 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { Mail, Phone, MapPin, Send, MessageCircle, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import contactData from "../data/contact.json";
+
+import api from "../services/api";
 
 export const Contact: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [contactData, setContactData] = useState<any>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/contact');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setContactData(data);
+      } catch (error) {
+        console.error('Error fetching data for /contact:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!contactData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    category: '',
+    company: '',
+    outline: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    try {
+      const response = await api.post('/contact', formData);
+      if (response.status === 200 || response.status === 201) {
+        setSubmitted(true);
+      } else {
+        alert('Failed to submit inquiry. Please try again.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Network error. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Format phone number to clean digits for WhatsApp link (e.g. +18005552633)
@@ -147,6 +188,8 @@ export const Contact: React.FC = () => {
                     <input
                       type="text"
                       required
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
                       placeholder="ARIAN DEVI"
                       className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs uppercase text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300"
                     />
@@ -156,6 +199,8 @@ export const Contact: React.FC = () => {
                     <input
                       type="email"
                       required
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
                       placeholder="ARIAN@DEVI.COM"
                       className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs uppercase text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300"
                     />
@@ -165,8 +210,12 @@ export const Contact: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="text-[9px] uppercase tracking-[2px] text-gold font-bold block mb-2 font-mono">INQUIRY CATEGORY</label>
-                    <select className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-gray-400 focus:outline-none focus:border-gold transition-colors duration-300">
-                      {contactData.inquiryTypes.map((type) => (
+                    <select 
+                      value={formData.category}
+                      onChange={(e) => setFormData({...formData, category: e.target.value})}
+                      className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-gray-400 focus:outline-none focus:border-gold transition-colors duration-300">
+                      <option value="">Select a category</option>
+                      {contactData.inquiryTypes.map((type: any) => (
                         <option key={type.value} value={type.value} className="bg-[#121212] text-white">
                           {type.label}
                         </option>
@@ -177,6 +226,8 @@ export const Contact: React.FC = () => {
                     <label className="text-[9px] uppercase tracking-[2px] text-gold font-bold block mb-2 font-mono">COMPANY / BRAND</label>
                     <input
                       type="text"
+                      value={formData.company}
+                      onChange={(e) => setFormData({...formData, company: e.target.value})}
                       placeholder="GOOGLE INC."
                       className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs uppercase text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300"
                     />
@@ -188,6 +239,8 @@ export const Contact: React.FC = () => {
                   <textarea
                     rows={4}
                     required
+                    value={formData.outline}
+                    onChange={(e) => setFormData({...formData, outline: e.target.value})}
                     placeholder="Provide outline dates, audience sizes, sponsorship briefs, or general requests."
                     className="w-full bg-black/60 border border-white/10 rounded-xl px-4 py-3.5 text-xs text-white placeholder-white/20 focus:outline-none focus:border-gold transition-colors duration-300"
                   />
@@ -195,10 +248,11 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 bg-gold hover:bg-gold-light text-black font-bold uppercase text-xs tracking-[2px] rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-gold/10"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-gold hover:bg-gold-light text-black font-bold uppercase text-xs tracking-[2px] rounded-xl flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-gold/10 disabled:opacity-50"
                   data-cursor="submit"
                 >
-                  Log Inquiry Details
+                  {isSubmitting ? 'Logging...' : 'Log Inquiry Details'}
                   <Send className="w-4 h-4" />
                 </button>
               </form>

@@ -1,9 +1,29 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { Download, Film } from "lucide-react";
 import { motion } from "framer-motion";
-import mediaData from "../data/media.json";
+
+import api from "../services/api";
 
 export const Media: React.FC = () => {
+  const [mediaData, setMediaData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/media');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setMediaData(data);
+      } catch (error) {
+        console.error('Error fetching data for /media:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!mediaData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">
       {/* Background Orbs */}

@@ -1,10 +1,30 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import { Award, Code } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
-import whatWeDoData from "../data/whatWeDo.json";
+
+import api from "../services/api";
 
 export const WhatWeDo: React.FC = () => {
+  const [whatWeDoData, setWhatWeDoData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/what-we-do');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setWhatWeDoData(data);
+      } catch (error) {
+        console.error('Error fetching data for /what-we-do:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!whatWeDoData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const data: any = whatWeDoData || {};
   const { hero, operations: rawOperations, servicesList: rawServices, quoteBanner } = data;
   

@@ -1,9 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import faqData from "../data/faq.json";
+
+import api from "../services/api";
 
 export const FAQ: React.FC = () => {
+  const [faqData, setFaqData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/faq');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setFaqData(data);
+      } catch (error) {
+        console.error('Error fetching data for /faq:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!faqData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   return (

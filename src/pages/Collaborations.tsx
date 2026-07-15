@@ -1,9 +1,29 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
-import collabData from "../data/collaborations.json";
+
+import api from "../services/api";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Collaborations: React.FC = () => {
+  const [collabData, setCollabData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/collaborations');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setCollabData(data);
+      } catch (error) {
+        console.error('Error fetching data for /collaborations:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!collabData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const data: any = collabData || {};
   const { hero, history, brandCarousel: rawBrands, partners: rawPartners, metrics: rawMetrics, campaigns: rawCampaigns, process: rawProcess, testimonials: rawTestimonials } = data;
   

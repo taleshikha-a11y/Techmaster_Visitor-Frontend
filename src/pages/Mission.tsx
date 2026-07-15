@@ -1,10 +1,30 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import { Compass, Eye, ShieldCheck, HeartHandshake, Target, Star, Link, Circle, Shield, Code, Cpu } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
-import missionVisionData from "../data/missionVision.json";
+
+import api from "../services/api";
 
 export const Mission: React.FC = () => {
+  const [missionVisionData, setMissionVisionData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/mission-vision');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setMissionVisionData(data);
+      } catch (error) {
+        console.error('Error fetching data for /mission-vision:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!missionVisionData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const renderIcon = (iconName: string, className: string) => {
     switch (iconName?.toLowerCase()) {
       case "eye": return <Eye className={className} />;

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Magnetic } from "../components/Magnetic";
 import { LuxuryCard } from "../components/LuxuryCard";
-import homeData from "../data/home.json";
+import api from "../services/api";
 import servicesData from "../data/services.json";
 import campaignsData from "../data/campaigns.json";
 import eventsData from "../data/events.json";

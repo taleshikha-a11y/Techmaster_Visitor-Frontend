@@ -1,11 +1,31 @@
-import React from "react";
+import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 import { Laptop, Terminal, Layers, ArrowUpRight, Cpu } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
 
-import productLaunchesData from "../data/productLaunches.json";
+
+import api from "../services/api";
 
 export const ProductLaunches: React.FC = () => {
+  const [productLaunchesData, setProductLaunchesData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/launches');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setProductLaunchesData(data);
+      } catch (error) {
+        console.error('Error fetching data for /launches:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!productLaunchesData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const getIcon = (iconStr: string) => {
     switch (iconStr?.toLowerCase()) {
       case 'terminal': return <Terminal className="w-6 h-6 text-electric-blue" />;

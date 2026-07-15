@@ -1,8 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import galleryData from "../data/gallery.json";
+
+import api from "../services/api";
 
 export const Gallery: React.FC = () => {
+  const [galleryData, setGalleryData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/gallery');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setGalleryData(data);
+      } catch (error) {
+        console.error('Error fetching data for /gallery:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!galleryData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const [activeFilter, setActiveFilter] = useState("All");
 
   const filters = [

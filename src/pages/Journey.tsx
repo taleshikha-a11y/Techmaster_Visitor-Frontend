@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useState,  useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import journeyData from "../data/journey.json";
+
+import api from "../services/api";
 import journeySettings from "../data/journeySettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 import { Calendar, ArrowDown } from "lucide-react";
@@ -10,6 +11,25 @@ import { Calendar, ArrowDown } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Journey: React.FC = () => {
+  const [journeyData, setJourneyData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/journey');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setJourneyData(data);
+      } catch (error) {
+        console.error('Error fetching data for /journey:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!journeyData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   useEffect(() => {
     // 1. Line drawing animation
     gsap.fromTo(

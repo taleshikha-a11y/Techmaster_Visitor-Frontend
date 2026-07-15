@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { ArrowUpRight, BarChart3, TrendingUp, Users, ChevronRight, Target, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import blogsData from "../data/blogs.json";
+import api from "../services/api";
 import blogSettings from "../data/blogSettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
@@ -61,6 +61,25 @@ const categories = Array.isArray(blogSettings?.blogCategories) && blogSettings.b
   : fallbackCategories;
 
 export const Blog: React.FC = () => {
+  const [blogsData, setBlogsData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/blogs');
+        const data = Array.isArray(response.data) ? response.data[0] : response.data;
+        setBlogsData(data);
+      } catch (error) {
+        console.error('Error fetching data for /blogs:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!blogsData) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const firstStrategyKey = Object.keys(strategyPresets)[0] || "solopreneur";
   const [activeStrategy, setActiveStrategy] = useState(firstStrategyKey);
