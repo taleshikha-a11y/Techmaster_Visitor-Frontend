@@ -4,6 +4,7 @@ import { Compass, Eye, ShieldCheck, HeartHandshake, Target, Star, Link, Circle, 
 import { LuxuryCard } from "../components/LuxuryCard";
 
 import api from "../services/api";
+import fallbackData from "../data/missionVision.json";
 
 export const Mission: React.FC = () => {
   const [missionVisionData, setMissionVisionData] = useState<any>(null);
@@ -13,9 +14,10 @@ export const Mission: React.FC = () => {
       try {
         const response = await api.get('/mission-vision');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setMissionVisionData(data);
+        setMissionVisionData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /mission-vision:', error);
+        setMissionVisionData(fallbackData);
       }
     };
     fetchData();

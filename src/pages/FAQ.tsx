@@ -3,6 +3,7 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import api from "../services/api";
+import fallbackData from "../data/faq.json";
 
 export const FAQ: React.FC = () => {
   const [faqData, setFaqData] = useState<any>(null);
@@ -12,9 +13,10 @@ export const FAQ: React.FC = () => {
       try {
         const response = await api.get('/faq');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setFaqData(data);
+        setFaqData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /faq:', error);
+        setFaqData(fallbackData);
       }
     };
     fetchData();

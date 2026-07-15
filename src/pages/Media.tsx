@@ -3,6 +3,7 @@ import { Download, Film } from "lucide-react";
 import { motion } from "framer-motion";
 
 import api from "../services/api";
+import fallbackData from "../data/media.json";
 
 export const Media: React.FC = () => {
   const [mediaData, setMediaData] = useState<any>(null);
@@ -12,9 +13,10 @@ export const Media: React.FC = () => {
       try {
         const response = await api.get('/media');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setMediaData(data);
+        setMediaData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /media:', error);
+        setMediaData(fallbackData);
       }
     };
     fetchData();

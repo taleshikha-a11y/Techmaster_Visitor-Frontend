@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
 import api from "../services/api";
+import fallbackData from "../data/testimonials.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Testimonials: React.FC = () => {
@@ -13,9 +14,10 @@ export const Testimonials: React.FC = () => {
       try {
         const response = await api.get('/testimonials');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setTestimonialsData(data);
+        setTestimonialsData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /testimonials:', error);
+        setTestimonialsData(fallbackData);
       }
     };
     fetchData();

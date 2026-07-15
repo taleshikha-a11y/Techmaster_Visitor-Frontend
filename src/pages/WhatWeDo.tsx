@@ -4,6 +4,7 @@ import { Award, Code } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 import api from "../services/api";
+import fallbackData from "../data/whatWeDo.json";
 
 export const WhatWeDo: React.FC = () => {
   const [whatWeDoData, setWhatWeDoData] = useState<any>(null);
@@ -13,9 +14,10 @@ export const WhatWeDo: React.FC = () => {
       try {
         const response = await api.get('/what-we-do');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setWhatWeDoData(data);
+        setWhatWeDoData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /what-we-do:', error);
+        setWhatWeDoData(fallbackData);
       }
     };
     fetchData();

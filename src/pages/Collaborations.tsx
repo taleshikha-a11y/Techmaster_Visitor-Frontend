@@ -2,6 +2,7 @@ import React , { useEffect,  useState } from "react";
 import { motion } from "framer-motion";
 
 import api from "../services/api";
+import fallbackData from "../data/collaborations.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Collaborations: React.FC = () => {
@@ -12,9 +13,10 @@ export const Collaborations: React.FC = () => {
       try {
         const response = await api.get('/collaborations');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setCollabData(data);
+        setCollabData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /collaborations:', error);
+        setCollabData(fallbackData);
       }
     };
     fetchData();

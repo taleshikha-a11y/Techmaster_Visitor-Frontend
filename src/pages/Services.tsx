@@ -3,6 +3,7 @@ import { Cpu, Layers, Box, Sparkles, Check, ChevronDown, ChevronUp } from "lucid
 import { motion, AnimatePresence } from "framer-motion";
 
 import api from "../services/api";
+import fallbackData from "../data/services.json";
 import serviceSettings from "../data/serviceSettings.json";
 
 export const Services: React.FC = () => {
@@ -13,9 +14,10 @@ export const Services: React.FC = () => {
       try {
         const response = await api.get('/services');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setServicesData(data);
+        setServicesData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /services:', error);
+        setServicesData(fallbackData);
       }
     };
     fetchData();

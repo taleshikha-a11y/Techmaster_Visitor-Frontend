@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, MessageCircle, ExternalLink } from "lucide-r
 import { motion } from "framer-motion";
 
 import api from "../services/api";
+import fallbackData from "../data/contact.json";
 
 export const Contact: React.FC = () => {
   const [contactData, setContactData] = useState<any>(null);
@@ -12,9 +13,10 @@ export const Contact: React.FC = () => {
       try {
         const response = await api.get('/contact');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setContactData(data);
+        setContactData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /contact:', error);
+        setContactData(fallbackData);
       }
     };
     fetchData();

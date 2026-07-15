@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import api from "../services/api";
+import fallbackData from "../data/journey.json";
 import journeySettings from "../data/journeySettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 import { Calendar, ArrowDown } from "lucide-react";
@@ -18,9 +19,10 @@ export const Journey: React.FC = () => {
       try {
         const response = await api.get('/journey');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setJourneyData(data);
+        setJourneyData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /journey:', error);
+        setJourneyData(fallbackData);
       }
     };
     fetchData();

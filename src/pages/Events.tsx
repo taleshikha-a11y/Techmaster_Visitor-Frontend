@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar, MapPin, Users, ArrowUpRight, Award } from "lucide-react";
 
 import api from "../services/api";
+import fallbackData from "../data/events.json";
 import eventsPageData from "../data/eventsPage.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 import gsap from "gsap";
@@ -18,9 +19,10 @@ export const Events: React.FC = () => {
       try {
         const response = await api.get('/events');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setEventsData(data);
+        setEventsData(data && Object.keys(data).length > 0 ? data : fallbackData);
       } catch (error) {
         console.error('Error fetching data for /events:', error);
+        setEventsData(fallbackData);
       }
     };
     fetchData();
