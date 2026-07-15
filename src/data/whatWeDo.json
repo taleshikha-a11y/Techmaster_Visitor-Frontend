@@ -1,0 +1,100 @@
+{
+  "sectionSettings": {
+    "hero": {
+      "order": 1,
+      "status": "Active"
+    },
+    "operations": {
+      "order": 2,
+      "status": "Active"
+    },
+    "servicesList": {
+      "order": 3,
+      "status": "Active"
+    },
+    "quoteBanner": {
+      "order": 4,
+      "status": "Active"
+    },
+    "seo": {
+      "order": 5,
+      "status": "Active"
+    }
+  },
+  "_id": "6a54e11be3421aa86d00c1e9",
+  "isPublished": false,
+  "publishedAt": null,
+  "draftStatus": "Draft",
+  "hero": {
+    "smallBadge": "OUR CAPABILITIES",
+    "headline": "Engineering the Future of",
+    "highlightWord": "Digital Spaces",
+    "glowEnabled": true,
+    "description": "We design and deliver intelligent digital solutions that combine technology, creativity, and strategy. From enterprise software and AI-powered applications to cloud infrastructure and cybersecurity, our expert teams help businesses innovate, scale, and stay ahead in a rapidly evolving digital world."
+  },
+  "operations": [
+    {
+      "id": "item-1784053839481",
+      "title": "Custom Software Development",
+      "subtitle": "Enterprise Applications",
+      "icon": "Code2",
+      "accent": "#4DAF37",
+      "description": "We build scalable web, mobile, and enterprise software tailored to business goals. Our development process focuses on performance, security, maintainability, and exceptional user experience from concept to deployment.",
+      "status": "Active",
+      "order": 1,
+      "isDeleted": false,
+      "_id": "6a56804f439620a278dc671f",
+      "createdAt": "2026-07-14T18:30:39.704Z",
+      "updatedAt": "2026-07-14T18:30:39.704Z"
+    },
+    {
+      "id": "item-1784054326811",
+      "title": "Cybersecurity Services",
+      "subtitle": "Secure Digital Operations",
+      "icon": "ShieldCheck",
+      "accent": "#EF4444",
+      "description": "Protect your business with advanced security assessments, threat monitoring, vulnerability management, compliance solutions, and enterprise-grade data protection.",
+      "status": "Active",
+      "order": 2,
+      "isDeleted": false,
+      "_id": "6a568236439620a278dc6725",
+      "createdAt": "2026-07-14T18:38:46.942Z",
+      "updatedAt": "2026-07-14T18:49:38.831Z"
+    }
+  ],
+  "servicesList": [
+    {
+      "id": "item-1784055082370",
+      "tag": "Portrait Photography",
+      "status": "Active",
+      "order": 1,
+      "isDeleted": false,
+      "_id": "6a56852a510d40f69dd0b1e7",
+      "createdAt": "2026-07-14T18:51:22.483Z",
+      "updatedAt": "2026-07-14T18:51:22.483Z"
+    },
+    {
+      "id": "item-1784055097580",
+      "tag": "Photo Retouching & Editing",
+      "status": "Active",
+      "order": 1,
+      "isDeleted": false,
+      "_id": "6a568539510d40f69dd0b1eb",
+      "createdAt": "2026-07-14T18:51:37.680Z",
+      "updatedAt": "2026-07-14T18:51:37.680Z"
+    }
+  ],
+  "quoteBanner": {
+    "authorName": "Ralph Waldo Emerson",
+    "quoteText": "Do not go where the path may lead, go instead where there is no path and leave a trail."
+  },
+  "seo": {
+    "metaTitle": "",
+    "metaDescription": "",
+    "metaKeywords": "",
+    "ogImageUrl": ""
+  },
+  "createdAt": "2026-07-13T12:59:07.913Z",
+  "updatedAt": "2026-07-14T18:54:27.652Z",
+  "__v": 4
+}

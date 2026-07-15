@@ -1,0 +1,132 @@
+{
+  "_id": "6a54c3fff9de7f4459555532",
+  "isPublished": false,
+  "isDraft": true,
+  "coreValues": [
+    {
+      "title": "Excellence",
+      "icon": "Award",
+      "accentColor": "#10B981",
+      "description": "Every project reflects our commitment to exceptional quality, precision, and continuous improvement.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a567469eebc00047f609f67",
+      "createdAt": "2026-07-14T17:39:53.855Z",
+      "updatedAt": "2026-07-14T17:39:53.855Z"
+    },
+    {
+      "title": "Collaboration",
+      "icon": "Users",
+      "accentColor": "#8B5CF6",
+      "description": "We believe teamwork, knowledge sharing, and strong partnerships create outstanding digital experiences.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a567499eebc00047f609f6a",
+      "createdAt": "2026-07-14T17:40:41.393Z",
+      "updatedAt": "2026-07-14T17:40:41.393Z"
+    },
+    {
+      "title": "Customer Success",
+      "icon": "HeartHandshake",
+      "accentColor": "#EF4444",
+      "description": "Our clients' success is our greatest achievement. We focus on delivering measurable results and long-term value.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a56750aeebc00047f609f6f",
+      "createdAt": "2026-07-14T17:42:34.607Z",
+      "updatedAt": "2026-07-14T17:42:34.607Z"
+    },
+    {
+      "title": "Integrity",
+      "icon": "ShieldCheck",
+      "accentColor": "#3B82F6",
+      "description": "We build lasting relationships through honesty, transparency, accountability, and ethical business practices.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a56752beebc00047f609f76",
+      "createdAt": "2026-07-14T17:43:07.599Z",
+      "updatedAt": "2026-07-14T17:43:07.599Z"
+    }
+  ],
+  "brandPillars": [
+    {
+      "title": "Innovation",
+      "subtitle": "Creating Tomorrow's Digital Experiences",
+      "icon": "Lightbulb",
+      "borderColor": "#D4AF37",
+      "hoverColor": "#F5C542",
+      "description": "We embrace emerging technologies, creative thinking, and continuous innovation to deliver immersive 3D experiences and future-ready digital solutions that help businesses stay ahead of the competition.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a567589eebc00047f609f7f",
+      "createdAt": "2026-07-14T17:44:41.057Z",
+      "updatedAt": "2026-07-14T17:44:41.057Z"
+    },
+    {
+      "title": "Quality",
+      "subtitle": "Excellence in Every Pixel",
+      "icon": "Award",
+      "borderColor": "#10B981",
+      "hoverColor": "#34D399",
+      "description": "Every project is crafted with precision, attention to detail, and the highest quality standards to ensure exceptional user experiences and lasting impact.",
+      "status": "Active",
+      "order": 1,
+      "_id": "6a5675afeebc00047f609f8a",
+      "createdAt": "2026-07-14T17:45:19.601Z",
+      "updatedAt": "2026-07-14T17:45:19.601Z"
+    }
+  ],
+  "roadmap": [],
+  "createdAt": "2026-07-13T10:54:55.583Z",
+  "updatedAt": "2026-07-14T17:58:19.202Z",
+  "__v": 6,
+  "hero": {
+    "smallLabel": "OUR PURPOSE",
+    "headline": "Driving Innovation Through Immersive Technology",
+    "highlightWord": "Driving Innovation Through Immersive Technology",
+    "description": "At TechMaster, our mission is to empower businesses with cutting-edge immersive 3D experiences, innovative digital solutions, and future-ready technologies that inspire creativity, improve engagement, and drive meaningful growth.",
+    "button1Text": "Explore Mission",
+    "button1Link": "/mission",
+    "button2Text": "Our Vision",
+    "button2Link": "/vision",
+    "scrollIndicatorVisible": true,
+    "backgroundImage": ""
+  },
+  "vision": [
+    {
+      "status": "Active",
+      "order": 1,
+      "_id": "6a56af3a422424df66048960",
+      "heading": "Creating the Future of Digital Experiences",
+      "subHeading": "Our Vision",
+      "description": "Our vision is to become a global leader in immersive technology by transforming ideas into extraordinary digital experiences. Through innovation, creativity, and continuous learning, we aim to shape a smarter, more connected digital future for businesses worldwide.",
+      "accentColor": "#D4AF37",
+      "visionIcon": "",
+      "buttonText": "Discover More",
+      "buttonUrl": "/vision",
+      "visionImage": "",
+      "createdAt": "2026-07-14T17:58:19.202Z",
+      "updatedAt": "2026-07-14T17:58:19.202Z"
+    }
+  ],
+  "mission": [
+    {
+      "status": "Active",
+      "order": 1,
+      "_id": "6a56af3a422424df66048961",
+      "heading": "Empowering Businesses Through Immersive Innovation",
+      "subHeading": "Our Mission",
+      "description": "Our mission is to empower businesses and creators with innovative immersive 3D solutions that transform ideas into engaging digital experiences. We combine creativity, technology, and strategic thinking to deliver high-quality visual content, interactive experiences, and future-ready digital solutions that inspire growth, strengthen brands, and create lasting value for our clients.",
+      "leftBorderColor": "#D4AF37",
+      "missionIcon": "",
+      "buttonText": "Learn More",
+      "buttonUrl": "/mission",
+      "glassEffect": true,
+      "missionImage": "",
+      "createdAt": "2026-07-14T17:58:19.200Z",
+      "updatedAt": "2026-07-14T17:58:19.200Z"
+    }
+  ],
+  "cta": [],
+  "seo": []
+}

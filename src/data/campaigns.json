@@ -1,0 +1,150 @@
+{
+  "hero": {
+    "smallBadge": "GLOBAL COLLABORATIONS",
+    "highlightWord": "Future",
+    "headline": "Shaping The Future Of Design",
+    "description": "Partnering with visionaries to craft bold campaigns and redefine creative standards across industries."
+  },
+  "seo": {
+    "metaTitle": "",
+    "metaDescription": "",
+    "metaKeywords": "",
+    "ogImageUrl": ""
+  },
+  "id": "6a54e3d7072aca8a54301ce7",
+  "campaignsList": [
+    {
+      "title": "CyberTech Global Launch 2026",
+      "sponsor": "Aura Dynamics",
+      "reach": "2.5 Million+ Engagements",
+      "description": "Spearheaded the digital marketing and 3D product reveal for Aura Dynamics' flagship CyberTech headset. The campaign blended interactive AR filters with a cinematic web experience, setting a new benchmark for tech launches.",
+      "highlights": [],
+      "accentColor": "#00E5FF",
+      "coverImage": "https://images.unsplash.com/photo-599782?auto=format&fit=crop&q=80&w=800",
+      "status": "Active",
+      "order": 1,
+      "id": "6a54e3d7072aca8a54301ce8",
+      "createdAt": "2026-07-13T13:10:47.669Z",
+      "updatedAt": "2026-07-13T13:10:47.669Z"
+    },
+    {
+      "title": "CyberTech Global Launch 2026",
+      "sponsor": "Aura Dynamics",
+      "reach": "2.5 Million+ Engagements",
+      "description": "Spearheaded the digital marketing and 3D product reveal for Aura Dynamics' flagship CyberTech headset. The campaign blended interactive AR filters with a cinematic web experience, setting a new benchmark for tech launches.",
+      "highlights": [],
+      "accentColor": "#00E5FF",
+      "coverImage": "https://images.unsplash.com/photo-429410?auto=format&fit=crop&q=80&w=800",
+      "status": "Active",
+      "order": 3,
+      "id": "6a56ac46422424df66048812",
+      "createdAt": "2026-07-14T21:38:14.403Z",
+      "updatedAt": "2026-07-14T21:38:14.403Z"
+    },
+    {
+      "sponsor": "",
+      "reach": "",
+      "title": "Test Campaign",
+      "description": "Testing API Persistence",
+      "highlights": [],
+      "accentColor": "#D4AF37",
+      "coverImage": "",
+      "status": "Active",
+      "order": 3,
+      "id": "6a56c9c9422424df66048dbb",
+      "createdAt": "2026-07-14T23:44:09.412Z",
+      "updatedAt": "2026-07-14T23:44:09.412Z"
+    },
+    {
+      "sponsor": "",
+      "reach": "",
+      "title": "Test Campaign",
+      "description": "Testing API Persistence",
+      "highlights": [],
+      "accentColor": "#D4AF37",
+      "coverImage": "",
+      "status": "Active",
+      "order": 4,
+      "id": "6a56ca13422424df66048dd0",
+      "createdAt": "2026-07-14T23:45:23.849Z",
+      "updatedAt": "2026-07-14T23:45:23.849Z"
+    }
+  ],
+  "lifecycle": [
+    {
+      "title": "Initial Consultation",
+      "description": "We begin by understanding your unique goals and project requirements through an in-depth discovery session.",
+      "status": "Active",
+      "order": 1,
+      "id": "6a56aaf0422424df660487d6",
+      "createdAt": "2026-07-14T21:32:32.196Z",
+      "updatedAt": "2026-07-14T21:32:32.196Z"
+    },
+    {
+      "title": "Initial Consultation",
+      "description": "We begin by understanding your unique goals and project requirements through an in-depth discovery session.",
+      "status": "Active",
+      "order": 3,
+      "id": "6a56af2a422424df66048907",
+      "createdAt": "2026-07-14T21:50:34.672Z",
+      "updatedAt": "2026-07-14T21:50:34.672Z"
+    },
+    {
+      "title": "Initial Consultation",
+      "description": "We begin by understanding your unique goals and project requirements through an in-depth discovery session.",
+      "status": "Active",
+      "order": 4,
+      "id": "6a56b6b8422424df66048bd3",
+      "createdAt": "2026-07-14T22:22:48.503Z",
+      "updatedAt": "2026-07-14T22:22:48.503Z"
+    }
+  ],
+  "successStories": [
+    {
+      "title": "The Future of Digital Design",
+      "description": "The Future of Digital Design",
+      "linkText": "Read Full Story",
+      "accentColor": "#00E5FF",
+      "status": "Active",
+      "order": 1,
+      "id": "6a56ab1e422424df660487ee",
+      "createdAt": "2026-07-14T21:33:18.321Z",
+      "updatedAt": "2026-07-14T21:33:18.321Z"
+    },
+    {
+      "title": "Test Story",
+      "description": "Test Description",
+      "linkText": "Read More",
+      "accentColor": "#D4AF37",
+      "status": "Active",
+      "order": 1,
+      "id": "6a56ac11422424df6604880c",
+      "createdAt": "2026-07-14T21:37:21.714Z",
+      "updatedAt": "2026-07-14T21:37:21.714Z"
+    },
+    {
+      "title": "TEST HOOK 2",
+      "description": "Testing if hook fires",
+      "linkText": "Read More",
+      "accentColor": "#FFFFFF",
+      "status": "Active",
+      "order": 99,
+      "id": "6a56b0c1422424df66048973",
+      "createdAt": "2026-07-14T21:57:21.712Z",
+      "updatedAt": "2026-07-14T21:57:21.712Z"
+    },
+    {
+      "title": "TEST HOOK 2",
+      "description": "Testing if hook fires",
+      "linkText": "Read More story",
+      "accentColor": "#00E5FF",
+      "status": "Active",
+      "order": 4,
+      "id": "6a56b314422424df66048b45",
+      "createdAt": "2026-07-14T22:07:16.070Z",
+      "updatedAt": "2026-07-14T22:07:16.070Z"
+    }
+  ],
+  "createdAt": "2026-07-13T13:10:47.572Z",
+  "updatedAt": "2026-07-14T23:54:44.516Z"
+}

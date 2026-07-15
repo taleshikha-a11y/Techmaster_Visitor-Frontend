@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "badgeText": "DYNAMIC FOUNDER STORY",
+    "heading": "The Epic Journey of <br />",
+    "highlightWord": "Aman",
+    "scrollIndicatorText": "Scroll Down for Magic",
+    "description": "This text was dynamically updated via the Admin panel APIs to show how seamlessly it connects with the visitor page."
+  },
+  "timelineSettings": {},
+  "futureVision": {
+    "image": {
+      "url": "",
+      "public_id": ""
+    },
+    "heading": "Journey Highlights",
+    "description": "These categories are now managed fully from the backend!",
+    "futureHeading": "The Horizon of Immersive Media",
+    "futureDescription": "Driving dynamic visual architectures across global operations networks."
+  },
+  "seo": {},
+  "highlights": [
+    {
+      "title": "Childhood",
+      "desc": "Early fascination with computers, dismantling old radios and writing basic HTML on a Windows 95 machine.",
+      "icon": "👶"
+    },
+    {
+      "title": "Career Beginning",
+      "desc": "Started as a junior developer in a local agency, learning the ropes of production-level code and client management.",
+      "icon": "🚀"
+    },
+    {
+      "title": "First Brand Collab",
+      "desc": "Partnering with a major tech hardware brand to produce a series of educational videos, marking the first sponsorship.",
+      "icon": "🤝"
+    },
+    {
+      "title": "Social Media Journey",
+      "desc": "From 0 to 2.5 Million subscribers, navigating algorithm changes, burnout, and discovering a unique educational voice.",
+      "icon": "📱"
+    },
+    {
+      "title": "Major Milestones",
+      "desc": "Reaching 100K subscribers, speaking at TEDx, and launching the first independent tech bootcamp.",
+      "icon": "🏆"
+    },
+    {
+      "title": "Biggest Challenges",
+      "desc": "Balancing a demanding senior architect role while growing a YouTube channel, and overcoming imposter syndrome.",
+      "icon": "🧗"
+    },
+    {
+      "title": "Success Stories",
+      "desc": "Helping thousands of students land roles at Fortune 500 companies through free content and accessible courses.",
+      "icon": "🌟"
+    },
+    {
+      "title": "Future Vision",
+      "desc": "Building a decentralized, globally accessible university-grade tech education platform for the next generation.",
+      "icon": "🔭"
+    },
+    {
+      "title": "New AI Era (Dynamic)",
+      "desc": "Just added this via Admin! Integrating state-of-the-art AI tooling and LLM workflows into our ecosystem.",
+      "icon": "🤖"
+    }
+  ]
+}

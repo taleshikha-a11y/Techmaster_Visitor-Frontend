@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "smallBadge": "Innovative Tech",
+    "highlightWord": "Future",
+    "headline": "Defining the Future of Digital Innovation",
+    "description": "We build cutting-edge software solutions designed to scale your business, streamline operations, and deliver exceptional user experiences in an ever-evolving market."
+  },
+  "featureVideo": {
+    "smallBadge": "",
+    "headline": "",
+    "description": "",
+    "trailerBtnText": "",
+    "notesBtnText": "",
+    "videoUrl": "",
+    "thumbnailUrl": ""
+  },
+  "seo": {
+    "metaTitle": "",
+    "metaDescription": "",
+    "metaKeywords": "",
+    "ogImageUrl": ""
+  },
+  "id": "6a54e3d7072aca8a54301cee",
+  "products": [
+    {
+      "title": "Zenvora OS 2.0",
+      "tagline": "The Next Evolution of Spatial Computing",
+      "description": "We successfully designed and launched the flagship Zenvora OS 2.0 interface. This major update introduces seamless 3D spatial navigation, AI-driven workflows, and a completely revamped design system that pushes the boundaries of modern computing.",
+      "icon": "Laptop",
+      "accentColor": "#00E5FF",
+      "status": "Active",
+      "order": 1,
+      "id": "6a54e442072aca8a54301cff",
+      "createdAt": "2026-07-13T13:12:34.192Z",
+      "updatedAt": "2026-07-13T13:12:34.192Z"
+    },
+    {
+      "title": "CloudScale Pro",
+      "tagline": "Next-Gen Cloud Infrastructure",
+      "description": "A robust cloud management platform that automates deployment and ensures 99.9% uptime for enterprise-level applications.",
+      "icon": "Laptop",
+      "accentColor": "#355dd4",
+      "status": "Active",
+      "order": 2,
+      "id": "6a56ba27422424df66048d7a",
+      "createdAt": "2026-07-14T22:37:27.495Z",
+      "updatedAt": "2026-07-14T22:37:27.495Z"
+    }
+  ],
+  "initiatives": [],
+  "createdAt": "2026-07-13T13:10:47.854Z",
+  "updatedAt": "2026-07-14T23:54:45.142Z"
+}

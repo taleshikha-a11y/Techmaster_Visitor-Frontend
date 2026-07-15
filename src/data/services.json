@@ -1,0 +1,16 @@
+[
+  {
+    "id": "main-1",
+    "title": "Enterprise Tech Consulting",
+    "tagline": "Empowering businesses with next-gen architecture.",
+    "icon": "Cpu",
+    "accentColor": "#D4AF37",
+    "features": [
+      "Cloud Migration",
+      "AI Integration",
+      "System Architecture",
+      "DevOps"
+    ],
+    "description": "We provide end-to-end technology consulting services to help enterprises scale efficiently."
+  }
+]

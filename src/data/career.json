@@ -1,0 +1,24 @@
+[
+  {
+    "id": "6a564b2ced168e189c3f62f8",
+    "team": "Video Team",
+    "role": "Senior Cinematic Editor",
+    "description": "We are looking for an elite cinematic editor who can weave narratives for high-end tech education content.",
+    "location": "Mumbai / Remote",
+    "type": "Full Time",
+    "salary": "Competitive",
+    "featured": true,
+    "applyUrl": "#"
+  },
+  {
+    "id": "6a54efb2e2461ccea2c09c37",
+    "team": "Metaverse Studio",
+    "role": "Lead 3D Environment Artist",
+    "description": "We are looking for a visionary 3D Artist to lead the creation of highly immersive, interactive spatial environments for our upcoming platform.",
+    "location": "Remote (Global)",
+    "type": "Full Time",
+    "salary": "$120k - $160k",
+    "featured": false,
+    "applyUrl": "#"
+  }
+]

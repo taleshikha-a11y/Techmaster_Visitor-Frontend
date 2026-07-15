@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "smallLabel": "",
+    "headline": "Innovative Solutions for Modern Challenges",
+    "description": "We provide end-to-end technology solutions tailored to elevate your business. From enterprise-grade software architecture to immersive 3D digital experiences, our expert services are designed to drive growth, efficiency, and unparalleled digital transformation.",
+    "button1Text": "",
+    "button1Link": "",
+    "button2Text": "",
+    "button2Link": "",
+    "backgroundImage": "",
+    "smallBadge": "WHAT WE OFFER",
+    "highlightWord": "solutions",
+    "glowEnabled": true
+  },
+  "advancedServices": [
+    {
+      "id": "new-ai-service",
+      "title": "Custom AI Integrations (Dynamic)",
+      "overview": "We build end-to-end custom artificial intelligence solutions for businesses. This tab was dynamically populated from the Admin panel!",
+      "benefits": [
+        "Automated workflows",
+        "Reduced overhead",
+        "Highly scalable architecture"
+      ],
+      "process": [
+        "Initial Audit",
+        "Model Training",
+        "Deployment",
+        "Ongoing Support"
+      ],
+      "cta": "Start AI Project",
+      "gallery": []
+    },
+    {
+      "id": "web3-service",
+      "title": "Web3 & Blockchain",
+      "overview": "Decentralized application development and smart contract auditing.",
+      "benefits": [
+        "Trustless architecture",
+        "Tokenomics",
+        "Immutable ledgers"
+      ],
+      "process": [
+        "Architecture Design",
+        "Contract Writing",
+        "Security Audit",
+        "Mainnet Launch"
+      ],
+      "cta": "Launch DApp",
+      "gallery": []
+    }
+  ],
+  "categories": []
+}

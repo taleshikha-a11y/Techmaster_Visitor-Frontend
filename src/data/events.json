@@ -1,0 +1,26 @@
+[
+  {
+    "id": "6a54e606de50ea3b746310b9",
+    "title": "Global 3D Tech Summit 2026",
+    "type": "Tech Conference",
+    "location": "San Francisco, USA",
+    "date": "2026-09-15",
+    "attendance": "5000",
+    "description": "",
+    "media": "https://images.unsplash.com/photo-204806?auto=format&fit=crop&q=80&w=800",
+    "accentColor": "#D4AF37",
+    "status": "Active"
+  },
+  {
+    "id": "6a54e777de50ea3b746310bc",
+    "title": " Global 3D Tech Summit 2026",
+    "type": "Tech Conference",
+    "location": "San Francisco, USA",
+    "date": "2026-09-15",
+    "attendance": "5000",
+    "description": "10:00 AM: Keynote Speech on the Future of AR/VR\r\n12:00 PM: Product Demos & Workshops\r\n02:00 PM: Networking Lunch\r\n04:00 PM: Closing Ceremony & Awards`",
+    "media": "https://images.unsplash.com/photo-277531?auto=format&fit=crop&q=80&w=800",
+    "accentColor": "#D4AF37",
+    "status": "Active"
+  }
+]

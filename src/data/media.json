@@ -1,0 +1,37 @@
+[
+  {
+    "_id": {
+      "buffer": {
+        "0": 106,
+        "1": 84,
+        "2": 239,
+        "3": 26,
+        "4": 226,
+        "5": 70,
+        "6": 28,
+        "7": 206,
+        "8": 162,
+        "9": 192,
+        "10": 156,
+        "11": 54
+      }
+    },
+    "status": "Published",
+    "order": 1,
+    "tags": [],
+    "albumFiles": [],
+    "mediaType": "Single Image",
+    "category": "Photos",
+    "title": "Exclusive: The Minds Behind Zenvora 3D",
+    "subtitle": "A deep dive into the creation of our spatial web platform.",
+    "description": "In this exclusive interview, our founders discuss the challenges of building real-time 3D environments on the web and the future of interactive digital experiences. Shot at our main headquarters.",
+    "author": "Sarah Jenkins, Tech Insider",
+    "photographer": "James Carter",
+    "videographer": "Elena Rodriguez",
+    "resolution": "4K HDR",
+    "publishDate": "2026-08-08",
+    "createdAt": {},
+    "updatedAt": {},
+    "__v": 0
+  }
+]

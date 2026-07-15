@@ -1,0 +1,77 @@
+[
+  {
+    "_id": {
+      "buffer": {
+        "0": 106,
+        "1": 84,
+        "2": 241,
+        "3": 216,
+        "4": 226,
+        "5": 70,
+        "6": 28,
+        "7": 206,
+        "8": 162,
+        "9": 192,
+        "10": 156,
+        "11": 57
+      }
+    },
+    "name": "Platform Security & Privacy",
+    "slug": "platform-security-privacy",
+    "displayOrder": 5,
+    "isActive": true,
+    "createdAt": {},
+    "updatedAt": {},
+    "__v": 0
+  },
+  {
+    "_id": {
+      "buffer": {
+        "0": 106,
+        "1": 84,
+        "2": 242,
+        "3": 43,
+        "4": 226,
+        "5": 70,
+        "6": 28,
+        "7": 206,
+        "8": 162,
+        "9": 192,
+        "10": 156,
+        "11": 58
+      }
+    },
+    "name": "Platform Security & Privacy",
+    "slug": "platform-security-privacy",
+    "displayOrder": 1,
+    "isActive": true,
+    "createdAt": {},
+    "updatedAt": {},
+    "__v": 0
+  },
+  {
+    "_id": {
+      "buffer": {
+        "0": 106,
+        "1": 84,
+        "2": 242,
+        "3": 75,
+        "4": 135,
+        "5": 60,
+        "6": 117,
+        "7": 11,
+        "8": 34,
+        "9": 128,
+        "10": 74,
+        "11": 120
+      }
+    },
+    "name": "Platform Security & Privacy",
+    "slug": "platform-security-privacy",
+    "displayOrder": 5,
+    "isActive": true,
+    "createdAt": {},
+    "updatedAt": {},
+    "__v": 0
+  }
+]

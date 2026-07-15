@@ -1,0 +1,90 @@
+{
+  "hero": {
+    "tag": "INNOVATING THE FUTURE OF TECH EDUCATION",
+    "headline": "Master Modern Tech with Immersive Learning",
+    "paragraph": "Join our elite community of developers, creators, and innovators. We provide cutting-edge MasterClasses, insightful tech events, and a vibrant community to help you elevate your skills to the next level. Build the future, today.",
+    "ctaPrimary": "Explore Programs",
+    "ctaSecondary": "Join the Community"
+  },
+  "biography": {
+    "name": "shikha ",
+    "text": "Hi, I'm  shikha. I started this journey with a simple belief: world-class technology education shouldn't be locked behind closed doors. With over a decade of experience in software architecture and building scalable systems, I realized there was a massive gap between traditional learning and real-world engineering. \n\nThat's why I created TechMaster. Our mission is to empower the next generation of developers, creators, and tech leaders by providing them with immersive, industry-level training and a strong, supportive community. I don't just want to teach you how to code—I want to help you build the future. \n\nLet's innovate, build in public, and redefine what's possible together."
+  },
+  "partnerLogos": [
+    "Google",
+    "Microsoft",
+    "Amazon Web Services",
+    "Meta",
+    "Vercel",
+    "Stripe",
+    "MongoDB"
+  ],
+  "values": [
+    {
+      "title": "Innovation First",
+      "description": "We constantly push the boundaries of modern technology, ensuring our curriculum and projects stay lightyears ahead of traditional education."
+    },
+    {
+      "title": "Build in Public",
+      "description": "Transparency is our superpower. We believe in sharing our code, our failures, and our successes openly with the community to foster collective growth."
+    },
+    {
+      "title": "Community Driven",
+      "description": "Great engineering is never done in isolation. We cultivate a vibrant ecosystem where creators, developers, and thinkers collaborate and elevate each other."
+    }
+  ],
+  "educationPillars": {
+    "tagline": "OUR EDUCATIONAL PILLARS",
+    "headline": "Bridging the Gap Between Academia and Industry",
+    "paragraph": "We structure our learning ecosystem around three core pillars: Foundational Theory, Practical Engineering, and Architectural Scalability. Rather than just teaching you the syntax, we dive deep into how massive systems are built at top-tier tech companies. Through rigorous project-based learning and hands-on deployment, you'll graduate not just as a coder, but as an industry-ready engineer.",
+    "ctaText": "View Service Portals"
+  },
+  "stats": [
+    {
+      "value": "25k+",
+      "label": "New State"
+    }
+  ],
+  "studentShowcase": {
+    "tagline": "VIDEO PORTFOLIO",
+    "headline": "Cinematic Student Showcases & Masterclass Snippets",
+    "videos": [
+      {
+        "id": "1784021050222",
+        "title": "New Video",
+        "url": "",
+        "type": "long_video",
+        "category": "General"
+      }
+    ]
+  },
+  "youtubePromo": {
+    "tagline": "LEARN FOR FREE",
+    "title": "The TechMaster Open Classroom",
+    "description": "Education should have no boundaries. That's why we bring high-quality, production-grade engineering tutorials directly to YouTube, absolutely free. From deep-dive system architecture breakdowns to rapid-fire coding tips, our channel is a goldmine for ambitious developers. Join our growing community of subscribers and start building today.",
+    "url": "https://youtube.com/@AmanTech"
+  },
+  "ourImpact": {
+    "tagline": "",
+    "headline": ""
+  },
+  "community": {
+    "tagline": "",
+    "headline": ""
+  },
+  "testimonials": {
+    "tagline": "WALL OF LOVE",
+    "headline": "Stories from Our Community",
+    "reviews": []
+  },
+  "newsletter": {
+    "tagline": "",
+    "title": "Join the Inner Circle",
+    "description": "Get exclusive access to cutting-edge tutorials, upcoming tech events, and behind-the-scenes insights. We won't spam your inbox—just high-value content delivered straight to you."
+  },
+  "seoFuture": {
+    "tagline": "THE FUTURE OF CODE",
+    "headline": "Ready to Redefine Your Career?",
+    "subtitle": "Start Learning Today"
+  }
+}

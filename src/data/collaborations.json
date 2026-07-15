@@ -1,0 +1,173 @@
+{
+  "sectionSettings": {
+    "hero": {
+      "order": 1,
+      "status": "Active"
+    },
+    "brandCarousel": {
+      "order": 1,
+      "status": "Active"
+    },
+    "partners": {
+      "order": 1,
+      "status": "Active"
+    },
+    "metrics": {
+      "order": 1,
+      "status": "Active"
+    },
+    "campaigns": {
+      "order": 1,
+      "status": "Active"
+    },
+    "history": {
+      "order": 1,
+      "status": "Active"
+    },
+    "process": {
+      "order": 1,
+      "status": "Active"
+    },
+    "testimonials": {
+      "order": 1,
+      "status": "Active"
+    },
+    "seo": {
+      "order": 1,
+      "status": "Active"
+    }
+  },
+  "_id": "6a5622f1dbef7e3f34ded08d",
+  "hero": {
+    "eyebrowText": "STRATEGIC PARTNERSHIPS",
+    "title": "Empowering Brands Through Innovation",
+    "highlightedTitle": "Innovation",
+    "description": "We build high-impact, long-term alliances that transform digital experiences and drive global growth."
+  },
+  "history": {
+    "eyebrow": "Our Journey Together",
+    "title": "Building Success Through Strategic Partnerships",
+    "highlightedTitle": "Partnership",
+    "description": "Over the years, we have collaborated with industry leaders and innovative startups to deliver transformative digital solutions. Our commitment to excellence and shared growth defines every project we undertake.",
+    "cardTitle": "Strategic Innovation 2024",
+    "cardDescription": "Partnered with top-tier tech firms to streamline workflow processes and implement AI-driven automation strategies."
+  },
+  "seo": {
+    "metaTitle": "",
+    "metaDescription": "",
+    "keywords": "",
+    "ogImage": ""
+  },
+  "brandCarousel": [
+    {
+      "brandName": "TechInnovate",
+      "logoImage": "",
+      "status": "true",
+      "order": 3,
+      "_id": "6a569842dccd07a16c734136",
+      "createdAt": "2026-07-14T20:12:50.413Z",
+      "updatedAt": "2026-07-14T20:30:39.800Z"
+    }
+  ],
+  "partners": [
+    {
+      "name": "Creative Fusion Studio",
+      "type": "Digital Media & Design",
+      "featuredWork": "Global Rebranding 2026",
+      "description": "Led the complete creative direction for a multi-channel global rebranding campaign, enhancing user engagement by 40%.",
+      "accentColor": "#D4AF37",
+      "logo": "",
+      "status": "true",
+      "order": 3,
+      "_id": "6a56988ddccd07a16c734139",
+      "createdAt": "2026-07-14T20:14:05.495Z",
+      "updatedAt": "2026-07-14T20:14:05.495Z"
+    }
+  ],
+  "metrics": [
+    {
+      "value": "500+",
+      "label": "Happy Clients",
+      "status": "true",
+      "order": 1,
+      "_id": "6a569cf8422424df66048708",
+      "createdAt": "2026-07-14T20:32:56.091Z",
+      "updatedAt": "2026-07-14T20:32:56.091Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "title": "Global Brand Awareness Drive",
+      "description": "We spearheaded a comprehensive digital transformation strategy that increased organic traffic by 150% and enhanced brand engagement across all social media platforms within six months.",
+      "buttonText": "View Case Study",
+      "buttonLink": "https://yourwebsite.com/case-studies/brand-awareness",
+      "accentColor": "#D4AF37",
+      "image": "",
+      "status": "true",
+      "order": 1,
+      "_id": "6a569d64422424df6604870c",
+      "createdAt": "2026-07-14T20:34:44.730Z",
+      "updatedAt": "2026-07-14T20:34:44.730Z"
+    }
+  ],
+  "process": [
+    {
+      "stepNumber": "01",
+      "title": "Initial Consultation",
+      "description": "We begin by understanding your specific goals, challenges, and vision to ensure our strategy aligns perfectly with your business needs.",
+      "status": "true",
+      "order": 1,
+      "_id": "6a569e49422424df66048715",
+      "createdAt": "2026-07-14T20:38:33.793Z",
+      "updatedAt": "2026-07-14T20:38:33.793Z"
+    },
+    {
+      "stepNumber": "02",
+      "title": "Strategy Development",
+      "description": "Our team crafts a customized plan, outlining the key milestones and creative approach tailored to achieve your desired results.",
+      "status": "Active",
+      "order": 2,
+      "_id": "6a569e62422424df6604871b",
+      "createdAt": "2026-07-14T20:38:58.957Z",
+      "updatedAt": "2026-07-14T20:38:58.957Z"
+    },
+    {
+      "stepNumber": "03",
+      "title": "Execution & Launch",
+      "description": ": We bring the strategy to life, implementing the plan with precision and keeping you updated throughout the entire launch process.",
+      "status": "Active",
+      "order": 3,
+      "_id": "6a569e87422424df66048722",
+      "createdAt": "2026-07-14T20:39:35.628Z",
+      "updatedAt": "2026-07-14T20:39:35.628Z"
+    },
+    {
+      "stepNumber": "04",
+      "title": "Analysis & Optimization",
+      "description": "Analysis & Optimization",
+      "status": "Active",
+      "order": 4,
+      "_id": "6a569e99422424df6604872a",
+      "createdAt": "2026-07-14T20:39:53.550Z",
+      "updatedAt": "2026-07-14T20:39:53.550Z"
+    }
+  ],
+  "testimonials": [
+    {
+      "personName": "Sarah Jenkins",
+      "designation": "Marketing Director",
+      "company": "TechNova Solutions",
+      "quote": "Working with this team was a game-changer for our business. Their strategic approach and dedication to quality significantly improved our project outcomes. Highly recommended!",
+      "accentColor": "#D4AF37",
+      "avatar": "",
+      "status": "true",
+      "order": 1,
+      "_id": "6a569edb422424df66048733",
+      "createdAt": "2026-07-14T20:40:59.471Z",
+      "updatedAt": "2026-07-14T20:40:59.471Z"
+    }
+  ],
+  "createdAt": "2026-07-14T11:52:17.671Z",
+  "updatedAt": "2026-07-14T20:40:59.472Z",
+  "__v": 11
+}

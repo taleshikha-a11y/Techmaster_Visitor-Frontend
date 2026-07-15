@@ -1,0 +1,50 @@
+{
+  "blogHero": {
+    "badge": "INSIGHTS & UPDATES",
+    "titleLine1": "Explore the Latest in",
+    "titleLine2": "3D Innovation & Digital Experiences"
+  },
+  "strategyStats": [
+    {
+      "active": true,
+      "order": 1,
+      "number": "250+",
+      "label": "Published Articles",
+      "id": "strategyStats-1784048783610"
+    }
+  ],
+  "featuredStrategy": {
+    "badge": "CONTENT STRATEGY",
+    "titleLine1": "Build a Powerful",
+    "titleLine2": "Digital Content Strategy",
+    "titleLine3": "That Delivers Results",
+    "description": "Create impactful content that educates, inspires, and converts your audience. Our strategy combines industry insights, immersive storytelling, SEO best practices, and data-driven planning to help businesses strengthen their digital presence and achieve measurable growth."
+  },
+  "strategyPillars": [
+    {
+      "active": true,
+      "order": 1,
+      "title": "Published Articles",
+      "description": "Optimize every article with keyword research, on-page SEO, structured content, meta tags, internal linking, and performance improvements to increase organic traffic and search engine rankings.",
+      "id": "strategyPillars-1784048802351"
+    }
+  ],
+  "strategyPresets": [
+    {
+      "active": true,
+      "order": 1,
+      "badge": "STARTUP",
+      "presetName": "startup-growth",
+      "impressions": "50K - 100K Users",
+      "channel": "50K - 100K Users",
+      "focus": "Educational blogs, SEO content, product explainers, thought leadership articles, social media marketing, and lead generation campaigns designed for growing startups.",
+      "roi": "3.8x Average ROI",
+      "id": "strategyPresets-1784048760736"
+    }
+  ],
+  "quickBlueprint": {
+    "title": "Ready to Build Your Digital Success Blueprint?",
+    "btnText": "Ready to Build Your Digital Success Blueprint?",
+    "description": "Turn your ideas into measurable results with our proven digital strategy framework. Explore expert insights, actionable plans, and innovative 3D solutions designed to accelerate business growth, strengthen your brand, and maximize customer engagement."
+  }
+}
