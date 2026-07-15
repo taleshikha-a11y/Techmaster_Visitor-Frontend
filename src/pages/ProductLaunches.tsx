@@ -8,7 +8,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/productLaunches.json";
 
 export const ProductLaunches: React.FC = () => {
-  const [productLaunchesData, setProductLaunchesData] = useState<any>(null);
+  const [productLaunchesData, setProductLaunchesData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +24,7 @@ export const ProductLaunches: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!productLaunchesData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const getIcon = (iconStr: string) => {
     switch (iconStr?.toLowerCase()) {

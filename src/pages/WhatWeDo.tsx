@@ -7,7 +7,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/whatWeDo.json";
 
 export const WhatWeDo: React.FC = () => {
-  const [whatWeDoData, setWhatWeDoData] = useState<any>(null);
+  const [whatWeDoData, setWhatWeDoData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const WhatWeDo: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!whatWeDoData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const data: any = whatWeDoData || {};
   const { hero, operations: rawOperations, servicesList: rawServices, quoteBanner } = data;

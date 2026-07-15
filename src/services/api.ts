@@ -9,10 +9,14 @@ const api = axios.create({
   },
 });
 
-export const mergeData = (fallback, current) => {
+export const mergeData = (fallback: any, current: any) => {
   if (!current) return fallback;
-  if (typeof current !== 'object') return current;
+  
+  // If backend returns an error string (like "404 Not Found" or HTML) instead of JSON
+  if (typeof current !== 'object') return fallback; 
+  
   if (Array.isArray(current)) return current.length > 0 ? current : fallback;
+  if (Object.keys(current).length === 0) return fallback;
   
   const merged = { ...fallback };
   for (const key in current) {

@@ -6,7 +6,7 @@ import fallbackData from "../data/collaborations.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Collaborations: React.FC = () => {
-  const [collabData, setCollabData] = useState<any>(null);
+  const [collabData, setCollabData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +22,7 @@ export const Collaborations: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!collabData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const data: any = collabData || {};
   const { hero, history, brandCarousel: rawBrands, partners: rawPartners, metrics: rawMetrics, campaigns: rawCampaigns, process: rawProcess, testimonials: rawTestimonials } = data;

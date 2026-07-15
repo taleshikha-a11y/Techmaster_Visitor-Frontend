@@ -12,7 +12,7 @@ import { Calendar, ArrowDown } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 export const Journey: React.FC = () => {
-  const [journeyData, setJourneyData] = useState<any>(null);
+  const [journeyData, setJourneyData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +28,7 @@ export const Journey: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!journeyData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   useEffect(() => {
     // 1. Line drawing animation

@@ -7,7 +7,7 @@ import fallbackData from "../data/career.json";
 import careerSettings from "../data/careerSettings.json";
 
 export const Career: React.FC = () => {
-  const [careerData, setCareerData] = useState<any>(null);
+  const [careerData, setCareerData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const Career: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!careerData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

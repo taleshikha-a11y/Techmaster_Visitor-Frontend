@@ -7,7 +7,7 @@ import fallbackData from "../data/testimonials.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Testimonials: React.FC = () => {
-  const [testimonialsData, setTestimonialsData] = useState<any>(null);
+  const [testimonialsData, setTestimonialsData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const Testimonials: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!testimonialsData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">

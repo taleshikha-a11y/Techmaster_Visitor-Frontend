@@ -174,12 +174,12 @@ const VideoCard = ({ video, onClick }: { video: any; onClick: () => void }) => {
 export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedVideo, setSelectedVideo] = useState<any>(null);
-  const [homeData, setHomeData] = useState<any>(null);
-  const [servicesData, setServicesData] = useState<any[]>([]);
-  const [campaignsData, setCampaignsData] = useState<any>(null);
-  const [eventsData, setEventsData] = useState<any[]>([]);
-  const [videosData, setVideosData] = useState<any[]>([]);
-  const [testimonialsData, setTestimonialsData] = useState<any[]>([]);
+  const [homeData, setHomeData] = useState<any>(fallbackHomeData);
+  const [servicesData, setServicesData] = useState<any[]>(fallbackServicesData);
+  const [campaignsData, setCampaignsData] = useState<any>(fallbackCampaignsData);
+  const [eventsData, setEventsData] = useState<any[]>(fallbackEventsData);
+  const [videosData, setVideosData] = useState<any[]>(fallbackVideosData);
+  const [testimonialsData, setTestimonialsData] = useState<any[]>(fallbackTestimonialsData);
 
   useEffect(() => {
     const fetchAllData = async () => {
@@ -291,10 +291,6 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
   const handleNavClick = (pageId: string) => {
     onChangePage(pageId);
   };
-
-  if (!homeData || Object.keys(homeData).length === 0) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
 
   const showcaseVideos = Array.isArray(homeData.studentShowcase?.videos) && homeData.studentShowcase.videos.length > 0 
     ? homeData.studentShowcase.videos 

@@ -5,7 +5,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/gallery.json";
 
 export const Gallery: React.FC = () => {
-  const [galleryData, setGalleryData] = useState<any>(null);
+  const [galleryData, setGalleryData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,9 +21,7 @@ export const Gallery: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!galleryData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [activeFilter, setActiveFilter] = useState("All");
 

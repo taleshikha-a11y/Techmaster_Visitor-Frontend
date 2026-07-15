@@ -7,7 +7,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/missionVision.json";
 
 export const Mission: React.FC = () => {
-  const [missionVisionData, setMissionVisionData] = useState<any>(null);
+  const [missionVisionData, setMissionVisionData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const Mission: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!missionVisionData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const renderIcon = (iconName: string, className: string) => {
     switch (iconName?.toLowerCase()) {

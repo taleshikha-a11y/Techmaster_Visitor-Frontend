@@ -62,7 +62,7 @@ const categories = Array.isArray(blogSettings?.blogCategories) && blogSettings.b
   : fallbackCategories;
 
 export const Blog: React.FC = () => {
-  const [blogsData, setBlogsData] = useState<any>(null);
+  const [blogsData, setBlogsData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,9 +78,7 @@ export const Blog: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!blogsData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const firstStrategyKey = Object.keys(strategyPresets)[0] || "solopreneur";

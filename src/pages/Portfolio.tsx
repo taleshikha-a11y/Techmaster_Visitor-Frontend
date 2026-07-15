@@ -8,7 +8,7 @@ import portfolioSettings from "../data/portfolioSettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Portfolio: React.FC = () => {
-  const [portfolioData, setPortfolioData] = useState<any>(null);
+  const [portfolioData, setPortfolioData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +24,7 @@ export const Portfolio: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!portfolioData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [activeFilter, setActiveFilter] = useState("All");
 

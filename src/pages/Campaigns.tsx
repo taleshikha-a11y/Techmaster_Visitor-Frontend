@@ -7,7 +7,7 @@ import fallbackData from "../data/campaigns.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 export const Campaigns: React.FC = () => {
-  const [campaignsData, setCampaignsData] = useState<any>(null);
+  const [campaignsData, setCampaignsData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const Campaigns: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!campaignsData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">

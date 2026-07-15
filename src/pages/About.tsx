@@ -19,7 +19,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/about.json";
 
 export const About: React.FC = () => {
-  const [aboutData, setAboutData] = useState<any>(null);
+  const [aboutData, setAboutData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchAboutData = async () => {
@@ -36,9 +36,7 @@ export const About: React.FC = () => {
     fetchAboutData();
   }, []);
 
-  if (!aboutData) {
-    return <div className="min-h-screen pt-32 pb-24 px-6 flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   return (
     <div className="relative text-white min-h-screen pt-32 pb-24 px-6 overflow-hidden">

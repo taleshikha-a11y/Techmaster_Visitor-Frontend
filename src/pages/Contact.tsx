@@ -6,7 +6,7 @@ import api, { mergeData } from "../services/api";
 import fallbackData from "../data/contact.json";
 
 export const Contact: React.FC = () => {
-  const [contactData, setContactData] = useState<any>(null);
+  const [contactData, setContactData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,9 +22,7 @@ export const Contact: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!contactData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);

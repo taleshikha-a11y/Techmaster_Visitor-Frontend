@@ -7,7 +7,7 @@ import fallbackData from "../data/services.json";
 import serviceSettings from "../data/serviceSettings.json";
 
 export const Services: React.FC = () => {
-  const [servicesData, setServicesData] = useState<any>(null);
+  const [servicesData, setServicesData] = useState<any>(fallbackData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,9 +23,7 @@ export const Services: React.FC = () => {
     fetchData();
   }, []);
 
-  if (!servicesData) {
-    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
-  }
+  
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [activeAdvancedTab, setActiveAdvancedTab] = useState<number>(0);
