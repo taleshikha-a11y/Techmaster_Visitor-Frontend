@@ -4,7 +4,7 @@ import { Laptop, Terminal, Layers, ArrowUpRight, Cpu } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
 
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/productLaunches.json";
 
 export const ProductLaunches: React.FC = () => {
@@ -15,7 +15,7 @@ export const ProductLaunches: React.FC = () => {
       try {
         const response = await api.get('/launches');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setProductLaunchesData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setProductLaunchesData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /launches:', error);
         setProductLaunchesData(fallbackData);

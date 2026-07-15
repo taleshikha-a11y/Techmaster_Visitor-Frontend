@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Award, Code } from "lucide-react";
 import { LuxuryCard } from "../components/LuxuryCard";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/whatWeDo.json";
 
 export const WhatWeDo: React.FC = () => {
@@ -14,7 +14,7 @@ export const WhatWeDo: React.FC = () => {
       try {
         const response = await api.get('/what-we-do');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setWhatWeDoData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setWhatWeDoData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /what-we-do:', error);
         setWhatWeDoData(fallbackData);

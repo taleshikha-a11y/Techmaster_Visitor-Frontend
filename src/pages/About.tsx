@@ -15,7 +15,7 @@ const getIconComponent = (iconName: string | undefined, fallbackIcon: React.Reac
 };
 import { motion } from "framer-motion";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/about.json";
 
 export const About: React.FC = () => {
@@ -27,7 +27,7 @@ export const About: React.FC = () => {
         const response = await api.get('/about');
         // Handle array response if the API returns an array, or single object
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setAboutData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setAboutData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching about data:', error);
         setAboutData(fallbackData);

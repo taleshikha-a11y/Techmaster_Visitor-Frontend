@@ -2,7 +2,7 @@ import React, { useEffect,  useState } from "react";
 import { Briefcase, MapPin, DollarSign, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/career.json";
 import careerSettings from "../data/careerSettings.json";
 
@@ -14,7 +14,7 @@ export const Career: React.FC = () => {
       try {
         const response = await api.get('/career');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setCareerData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setCareerData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /career:', error);
         setCareerData(fallbackData);

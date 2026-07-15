@@ -1,7 +1,7 @@
 import React, { useEffect,  useState } from "react";
 import { ArrowUpRight, BarChart3, TrendingUp, Users, ChevronRight, Target, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/blogs.json";
 import blogSettings from "../data/blogSettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
@@ -69,7 +69,7 @@ export const Blog: React.FC = () => {
       try {
         const response = await api.get('/blogs');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setBlogsData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setBlogsData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /blogs:', error);
         setBlogsData(fallbackData);

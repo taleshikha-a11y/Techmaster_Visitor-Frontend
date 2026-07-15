@@ -2,7 +2,7 @@ import React, { useEffect,  useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/portfolio.json";
 import portfolioSettings from "../data/portfolioSettings.json";
 import { LuxuryCard } from "../components/LuxuryCard";
@@ -15,7 +15,7 @@ export const Portfolio: React.FC = () => {
       try {
         const response = await api.get('/portfolio');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setPortfolioData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setPortfolioData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /portfolio:', error);
         setPortfolioData(fallbackData);

@@ -2,7 +2,7 @@ import React, { useEffect,  useState } from "react";
 import { Mail, Phone, MapPin, Send, MessageCircle, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/contact.json";
 
 export const Contact: React.FC = () => {
@@ -13,7 +13,7 @@ export const Contact: React.FC = () => {
       try {
         const response = await api.get('/contact');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setContactData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setContactData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /contact:', error);
         setContactData(fallbackData);

@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Magnetic } from "../components/Magnetic";
 import { LuxuryCard } from "../components/LuxuryCard";
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 
 import fallbackHomeData from "../data/home.json";
 import fallbackServicesData from "../data/services.json";
@@ -200,12 +200,12 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
         const fetchedVideos = Array.isArray(videosRes.data) ? videosRes.data : [];
         const fetchedTestimonials = Array.isArray(testimonialsRes.data) ? testimonialsRes.data : [];
 
-        setHomeData(fetchedHome && Object.keys(fetchedHome).length > 0 ? fetchedHome : fallbackHomeData);
-        setServicesData(fetchedServices.length > 0 ? fetchedServices : fallbackServicesData);
-        setCampaignsData(fetchedCampaigns && Object.keys(fetchedCampaigns).length > 0 ? fetchedCampaigns : fallbackCampaignsData);
-        setEventsData(fetchedEvents.length > 0 ? fetchedEvents : fallbackEventsData);
-        setVideosData(fetchedVideos.length > 0 ? fetchedVideos : fallbackVideosData);
-        setTestimonialsData(fetchedTestimonials.length > 0 ? fetchedTestimonials : fallbackTestimonialsData);
+        setHomeData(mergeData(fallbackHomeData, fetchedHome));
+        setServicesData(mergeData(fallbackServicesData, fetchedServices));
+        setCampaignsData(mergeData(fallbackCampaignsData, fetchedCampaigns));
+        setEventsData(mergeData(fallbackEventsData, fetchedEvents));
+        setVideosData(mergeData(fallbackVideosData, fetchedVideos));
+        setTestimonialsData(mergeData(fallbackTestimonialsData, fetchedTestimonials));
       } catch (error) {
         console.error('Error fetching home data:', error);
         setHomeData(fallbackHomeData);

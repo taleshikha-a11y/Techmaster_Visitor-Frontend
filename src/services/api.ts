@@ -9,4 +9,22 @@ const api = axios.create({
   },
 });
 
+export const mergeData = (fallback, current) => {
+  if (!current) return fallback;
+  if (typeof current !== 'object') return current;
+  if (Array.isArray(current)) return current.length > 0 ? current : fallback;
+  
+  const merged = { ...fallback };
+  for (const key in current) {
+    if (current[key] !== null && current[key] !== undefined) {
+      if (typeof current[key] === 'object' && !Array.isArray(current[key])) {
+        merged[key] = mergeData(fallback[key] || {}, current[key]);
+      } else {
+        merged[key] = current[key];
+      }
+    }
+  }
+  return merged;
+};
+
 export default api;

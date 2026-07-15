@@ -2,7 +2,7 @@ import React , { useEffect,  useState } from "react";
 import { Calendar, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-import api from "../services/api";
+import api, { mergeData } from "../services/api";
 import fallbackData from "../data/campaigns.json";
 import { LuxuryCard } from "../components/LuxuryCard";
 
@@ -14,7 +14,7 @@ export const Campaigns: React.FC = () => {
       try {
         const response = await api.get('/campaigns');
         const data = Array.isArray(response.data) ? response.data[0] : response.data;
-        setCampaignsData(data && Object.keys(data).length > 0 ? data : fallbackData);
+        setCampaignsData(mergeData(fallbackData, data));
       } catch (error) {
         console.error('Error fetching data for /campaigns:', error);
         setCampaignsData(fallbackData);
