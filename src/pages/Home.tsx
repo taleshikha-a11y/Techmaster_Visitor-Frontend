@@ -6,11 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Magnetic } from "../components/Magnetic";
 import { LuxuryCard } from "../components/LuxuryCard";
 import api from "../services/api";
-import servicesData from "../data/services.json";
-import campaignsData from "../data/campaigns.json";
-import eventsData from "../data/events.json";
-import videosData from "../data/videos.json";
-import testimonialsData from "../data/testimonials.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -172,6 +167,37 @@ const VideoCard = ({ video, onClick }: { video: any; onClick: () => void }) => {
 export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedVideo, setSelectedVideo] = useState<any>(null);
+  const [homeData, setHomeData] = useState<any>(null);
+  const [servicesData, setServicesData] = useState<any[]>([]);
+  const [campaignsData, setCampaignsData] = useState<any>(null);
+  const [eventsData, setEventsData] = useState<any[]>([]);
+  const [videosData, setVideosData] = useState<any[]>([]);
+  const [testimonialsData, setTestimonialsData] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchAllData = async () => {
+      try {
+        const [homeRes, servicesRes, campaignsRes, eventsRes, videosRes, testimonialsRes] = await Promise.all([
+          api.get('/home').catch(() => ({ data: {} })),
+          api.get('/services').catch(() => ({ data: [] })),
+          api.get('/campaigns').catch(() => ({ data: {} })),
+          api.get('/events').catch(() => ({ data: [] })),
+          api.get('/videos').catch(() => ({ data: [] })),
+          api.get('/testimonials').catch(() => ({ data: [] }))
+        ]);
+        
+        setHomeData(Array.isArray(homeRes.data) ? homeRes.data[0] : homeRes.data);
+        setServicesData(Array.isArray(servicesRes.data) ? servicesRes.data : []);
+        setCampaignsData(Array.isArray(campaignsRes.data) ? campaignsRes.data[0] : campaignsRes.data);
+        setEventsData(Array.isArray(eventsRes.data) ? eventsRes.data : []);
+        setVideosData(Array.isArray(videosRes.data) ? videosRes.data : []);
+        setTestimonialsData(Array.isArray(testimonialsRes.data) ? testimonialsRes.data : []);
+      } catch (error) {
+        console.error('Error fetching home data:', error);
+      }
+    };
+    fetchAllData();
+  }, []);
 
   useEffect(() => {
     // GSAP ScrollTrigger animations
@@ -198,12 +224,10 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
       }
     });
 
-
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [homeData]); // re-run when homeData changes
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -242,11 +266,15 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
     return () => {
       ctx.revert();
     };
-  }, [activeFilter]);
+  }, [activeFilter, homeData]); // re-run when activeFilter or homeData changes
 
   const handleNavClick = (pageId: string) => {
     onChangePage(pageId);
   };
+
+  if (!homeData || Object.keys(homeData).length === 0) {
+    return <div className="min-h-screen flex items-center justify-center text-white"><div className="w-16 h-16 border-4 border-gold border-t-transparent rounded-full animate-spin"></div></div>;
+  }
 
   const showcaseVideos = Array.isArray(homeData.studentShowcase?.videos) && homeData.studentShowcase.videos.length > 0 
     ? homeData.studentShowcase.videos 
@@ -283,7 +311,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
             <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
               <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
-            {homeData.hero.tag}
+            {homeData.hero?.tag || "Premium Tech"}
           </motion.div>
 
           {/* Headline with split reveal effect */}
@@ -293,7 +321,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
             transition={{ duration: 1.0, delay: 0.4, ease: "easeOut" }}
             className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight mb-8 text-reveal"
           >
-            {homeData.hero.headline || "Orchestrating Immersive Tech Education."}
+            {homeData.hero?.headline || "Orchestrating Immersive Tech Education."}
           </motion.h1>
 
           <motion.div
@@ -302,7 +330,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
             transition={{ duration: 1.0, delay: 0.6 }}
             className="text-gray-400 text-sm md:text-lg font-light max-w-2xl leading-relaxed mb-6 md:mb-12 p-4 md:p-8 rounded-2xl border border-gold bg-black/40 backdrop-blur-sm shadow-[0_0_30px_rgba(212,175,55,0.1)]"
           >
-            {homeData.hero.paragraph}
+            {homeData.hero?.paragraph}
           </motion.div>
 
           <motion.div
@@ -316,7 +344,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
                 onClick={() => handleNavClick("services")}
                 className="light-sweep px-8 py-4 bg-white text-black font-bold uppercase text-xs tracking-[2px] rounded-full hover:bg-gold hover:text-black transition-all duration-500 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
               >
-                {homeData.hero.ctaPrimary}
+                {homeData.hero?.ctaPrimary || "Explore"}
               </button>
             </Magnetic>
 
@@ -336,7 +364,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
                 onClick={() => handleNavClick("contact")}
                 className="px-8 py-4 border border-white/20 text-white font-bold uppercase text-xs tracking-[2px] rounded-full hover:border-gold hover:text-gold bg-transparent transition-all duration-500 flex items-center gap-2"
               >
-                {homeData.hero.ctaSecondary}
+                {homeData.hero?.ctaSecondary || "Contact"}
                 <ArrowUpRight className="w-4 h-4" />
               </button>
             </Magnetic>
@@ -373,7 +401,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
         >
           {[1, 2].map((groupIndex) => (
             <div key={groupIndex} className="flex items-center gap-12 md:gap-24">
-              {(homeData.partnerLogos || ["NVIDIA", "GITHUB", "GOOGLE CLOUD", "APPLE DEVELOPER", "VERCEL", "MICROSOFT"]).map((brand) => (
+              {(homeData.partnerLogos || ["NVIDIA", "GITHUB", "GOOGLE CLOUD", "APPLE DEVELOPER", "VERCEL", "MICROSOFT"]).map((brand: string) => (
                 <span
                   key={brand}
                   className="font-serif text-xl sm:text-2xl font-black text-gold tracking-[6px] transition-colors duration-300 select-none cursor-default"
@@ -394,7 +422,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
           </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {homeData.values.map((val, idx) => (
+          {homeData.values?.map((val: any, idx: number) => (
             <div key={idx} className="glass-panel p-8 rounded-3xl border-l-4 border-l-gold/40 hover:border-l-gold transition-all duration-300 fade-up">
               <h3 className="font-serif text-xl font-medium text-white mb-2">{val.title}</h3>
               <p className="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">{val.description}</p>
@@ -432,9 +460,9 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
 
         {/* Services Grid using LuxuryCard */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {servicesData.map((srv, idx) => (
+          {servicesData?.map((srv: any, idx: number) => (
             <LuxuryCard
-              key={srv.id}
+              key={srv.id || idx}
               accentColor={srv.accentColor}
               className="fade-up"
               index={idx}
@@ -456,7 +484,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
               </p>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-white/5">
-                {srv.features.map((feat, fidx) => (
+                {srv.features?.map((feat: string, fidx: number) => (
                   <li key={fidx} className="flex items-center gap-2 text-xs text-gray-400">
                     <CheckCircle className="w-3.5 h-3.5 text-gold shrink-0" />
                     <span>{feat}</span>
@@ -478,7 +506,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
         <div className="max-w-7xl mx-auto">
           <p className="text-[10px] uppercase tracking-[6px] text-gold font-bold mb-12">INFLUENCE & REACH</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {homeData.stats.map((stat, idx) => (
+            {homeData.stats?.map((stat: any, idx: number) => (
               <div key={idx} className="fade-up">
                 <span className="font-serif text-4xl sm:text-6xl font-black text-gold block mb-2">{stat.value}</span>
                 <span className="text-gray-400 text-xs tracking-[1px] uppercase font-mono">{stat.label}</span>
@@ -568,7 +596,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
             {filteredVideos.map((video: any, idx: number) => {
               const isLastAndOdd = idx === filteredVideos.length - 1 && filteredVideos.length % 2 !== 0;
               return (
-                <div
+               <div
                   key={video.id}
                   className={`video-fade-in aspect-[16/9] ${
                     isLastAndOdd ? "col-span-1 md:col-span-2 max-w-3xl mx-auto w-full" : "col-span-1"
@@ -641,7 +669,7 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {(campaignsData?.campaignsList || campaignsData || []).slice(0, 3).map((camp: any) => (
-            <div key={camp.id} className="glass-panel p-6 rounded-2xl border border-white/5 fade-up flex flex-col">
+            <div key={camp.id || camp.title} className="glass-panel p-6 rounded-2xl border border-white/5 fade-up flex flex-col">
               <img src={camp.coverImage} alt={camp.title} className="w-full h-40 object-cover rounded-xl mb-4" />
               <h3 className="font-serif text-xl text-white mb-2">{camp.title}</h3>
               <p className="text-gray-400 text-xs font-light flex-grow">{camp.description}</p>
@@ -664,8 +692,8 @@ export const Home: React.FC<HomeProps> = ({ onChangePage }) => {
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {eventsData.slice(0, 2).map((evt: any) => (
-            <div key={evt.id} className="glass-panel p-8 rounded-2xl border-l-2 hover:border-l-gold transition-all duration-300 fade-up">
+          {eventsData?.slice(0, 2).map((evt: any) => (
+            <div key={evt.id || evt.title} className="glass-panel p-8 rounded-2xl border-l-2 hover:border-l-gold transition-all duration-300 fade-up">
               <span className="text-gold text-xs font-mono mb-3 block">{evt.date}</span>
               <h3 className="font-serif text-2xl text-white mb-3">{evt.title}</h3>
               <p className="text-gray-400 text-sm font-light">{evt.description}</p>
